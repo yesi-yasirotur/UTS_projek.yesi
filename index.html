@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="z-n1">
+    <!--Top-Bar-->
+    <div class="shadow topBar">
+    </div>
+    <!-- Sidebar -->
+    <ul id="sidebar" class="nav nav-pills nav-fill flex-column z-2 position-relative">
+        <li class="nav-item d-flex mb-4" id="iconGroup">
+            <img src="image/logo.jpeg" alt="" width="30%" height="30%" class="mt-3">
+            <a href="#" class="text-decoration-none my-3 text-start fs-5 fw-bold">
+                PT <br><span class="text-black fw-bold fs-4">Yesfashion</span>
+            </a>
+        </li>
+        <!--Sidebar Item-->
+        <li class="d-flex">
+            <div class="w-25 ms-3"><img src="image/foto.jpeg" class="foto" style="border-radius: 50%" alt="">
+            </div>
+            <div class="flex-column ms-2 txtAdm">
+                <p class=" fw-bold mt-3 text-start me-3 txtWc" >Welcome, Yasirotur Rahmah</p>
+                <p class="fw-bold fs-6">Administrator</p>
+            </div>
+
+        </li>
+        <li class="nav-item d-flex mx-3 text-start mt-1 mb-3">
+            <a class="h-25 py-3 nav-link w-100 shadow text-decoration-none txtOnSidebar"
+                aria-current="page" href="#" onclick="showContent('dashboard')">
+                <span class="fas fa-home fs-5 "></span> Dashboard
+            </a>
+        </li>
+        
+        <p class="ms-5 fs-6 fw-bold ">MENU KARYAWAN</p>
+        <li class="nav-item d-flex mx-3 text-start mb-3">
+            <a class="nav-link text-decoration-none shadow  w-100 py-3 txtOnSidebar" aria-current="page" href="#"
+                onclick="showContent('karyawan')">
+                <span class="fas fa-users fs-5 "></span> Karyawan</a>
+        </li>
+        <li class="nav-item d-flex mx-3 text-start mb-3">
+            <a class="nav-link text-decoration-none shadow  w-100 py-3 txtOnSidebar" aria-current="page" href="#"
+                onclick="showContent('pageJabatan')">
+                <span class="fas fa-user-plus fs-5 "></span> Jabatan</a>
+        </li>
+        <li class="nav-item d-flex mx-3 text-start mb-3">
+            <a class="nav-link text-decoration-none shadow  w-100 py-3 txtOnSidebar" aria-current="page" href="#"
+                onclick="showContent('pageDivisi')">
+                <span class="fas fa-user-plus fs-5 "></span> Divisi</a>
+        </li>
+        <p class="ms-5 fs-6 fw-bold ">MENU ABSENSI</p>
+        <li class="nav-item d-flex mx-3 text-start mb-3">
+            <a class="nav-link text-decoration-none shadow  w-100 py-3 txtOnSidebar" aria-current="page" href="#"
+                onclick="showContent('absensi')">
+                <span class="fas fa-users fs-5 "></span> Absensi</a>
+        </li>
+        <li class="nav-item d-flex mx-3 text-start mb-3">
+            <a class="nav-link text-decoration-none shadow  w-100 py-3 txtOnSidebar" aria-current="page" href="#"
+                onclick="showContent('izin')">
+                <span class="fas fa-user-plus fs-5 "></span> Izin</a>
+        </li>
+        <li class="nav-item d-flex mx-3 text-start mb-3">
+            <a class="nav-link text-decoration-none shadow  w-100 py-3 txtOnSidebar" aria-current="page" href="#"
+                onclick="showContent('lembur')">
+                <span class="fas fa-user-plus fs-5 "></span> Lembur</a>
+        </li>
+        <p class="ms-5 fs-6 fw-bold ">MENU PENGGAJIAN</p>
+        <li class="nav-item d-flex mx-3 text-start mb-3">
+            <a class="nav-link text-decoratiaon-none- shadow w-100 py-3 txtOnSidebar" aria-current="page" href="#"
+            onclick="showContent ('Slip Gaji')">
+            <span class="fas fa-money-bill-wave fs-5"></span> Slip Gaji</a>
+        </li>
+        <li class="nav-item d-flex mx-3 text-start mb-3">
+            <a class="nav-link text-decoration-none-shadow w-100 py-3 txtOnSidebar" aria current="page" href="#"
+            onclick="showContent ('Cetak Slip Gaji')">
+            <span class="fas fa-solid fa-print fs-5"></span> Cetak Slip Gaji</a>
+        </li>
+        <p class="ms-5 fs-6 fw-bold">MENU LAPORAN</p>
+        <li class="nav-item d-flex mx-3 text-start mb-3">
+            <a class="nav-link text-decoration-none-shadow w-100 py-3 txtOnSidebar" aria curret="page" href="#"
+            onclick="showContent ('Cetak Laporan')">
+        <span class="fas fa-solid fa-file fs-5"></span> Cetak Laporan</a>
+        </li>
+        <p class="ms-5 fs-6 fw-bold">MENU ADMIN</p>
+        <li class="nav-item d-flex mx-3 text-start mb-3">
+            <a class="nav-link text-decoration-none-shadow w-100 py-3 txtOnSidebar" aria current="page" href="#"
+            onclick="showContent ('Pengguna')">
+            <span class="fas fa-solid fa-user-gear fs-5"></span> Pengguna</a>
+            
+        </li>
+    </ul>
+
+    <!--Content Dashboard-->
+    <div id="dashboard" class="content-section float-start"
+        style="position: absolute; top:0; width:100%; height:45%; display:block; z-index:0"><!--background content-->
+        <div class="z-2" style="position: absolute; left:23%; top:50%">
+            <h1 class="txtSIMK">Sistem Informasi Manajemen Karyawan</h1>
+            <p class="txtAdmDash fw-bold">Admin Dashboard</p>
+            <!--List Box Content-->
+            <div class="d-flex flex-row">
+                <!--Data Pegawai-->
+                <div class="card shadow pe-5 me-3" style="height:7em; width:13rem">
+                    <div class="card-body">
+                        <div class="d-flex flex-row"><!--Icon-->
+                            <div class="kPegawai border p-2 rounded mt-2" style="margin-bottom: 40%;"><i
+                                    class="fas fa-users fs-1 icColorKaryawan"></i></div>
+                            <div class="d-flex flex-column"><!--Isi-->
+                                <p class="ms-2 txtCard mb-0" style="font-size:13px">Data Pegawai</p>
+                                <p id="dataPegawai" class="txtCard2 ms-2 fs-5">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Absensi-->
+                <div class="card shadow me-3" style="height:7em; width:14rem">
+                    <div class="card-body">
+                        <div class="d-flex flex-row"><!--Icon-->
+                            <div class="kAbsensi border p-2 rounded mt-2" style="margin-bottom: 40%;"><i
+                                    class="fas fa-calendar-check fs-1 icColorAbsen"></i></div>
+                            <div class="d-flex flex-column txtCard"><!--Isi-->
+                                <h1 class="ms-2 mb-0 txtCard" style="font-size:13px">Absensi Hari ini<p id="date"
+                                        class="txtCard"> dd/mm/yyyy</p>
+                                </h1>
+                                <p id="nowDate" class="ms-2 fs-5 txtCard2" style="margin-top:-10%;">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Izin Waiting-->
+                <div class="card shadow me-3" style="height:7em; width:14rem">
+                    <div class="card-body">
+                        <div class="d-flex flex-row"><!--Icon-->
+                            <div class="kIzin border p-2 rounded mt-2" style="margin-bottom: 40%;"><i
+                                    class="far fa-check-circle fs-1 icColorIzin"></i></div>
+                            <div class="d-flex flex-column"><!--Isi-->
+                                <p class="ms-2 txtCard mb-0" style="font-size:13px">Izin Menunggu Konfirmasi</p>
+                                <p id="dataIzinMenunggu" class="txtCard2 ms-2 fs-5">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Lembur Waiting-->
+                <div class="card shadow" style="height:7em; width:14rem">
+                    <div class="card-body">
+                        <div class="d-flex flex-row"><!--Icon-->
+                            <div class="kLembur border p-2 rounded mt-2" style="margin-bottom: 40%;"><i
+                                    class="far fa-check-circle fs-1 text-white"></i></div>
+                            <div class="d-flex flex-column"><!--Isi-->
+                                <p class="ms-2 txtCard mb-0" style="font-size:13px">Lembur Menunggu Konfirmasi
+                                </p>
+                                <p id="dataLemburMenunggu" class="txtCard2 ms-2 fs-5">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Content Karyawan-->
+    <div id="karyawan" class="content-section float-start"
+        style="position: absolute; top:0; width:100%; height:45%; display:none; z-index:1"><!--background content-->
+        <div style="position: absolute; left:25%; top:50%; width:70%">
+            <h1 class="fs-3 txtKDash">Dashboard</h1>
+            <div class="container mt-5 bgTabel shadow rounded-3">
+                <div class="d-flex flex-row z-2">
+                    <h2 class="txtDkaryawan mt-3 w-75">Data Karyawan</h2>
+                    <a href="#" class="btn btnAdd mt-3 mb-3 rounded-pill flex-shrink-1"
+                        onclick="showContent('tambahKaryawan')">+ Tambah Karyawan</a>
+                </div>
+                <table id="dataKaryawan" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Kode</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Alamat</th>
+                            <th>Jabatan</th>
+                            <th>Divisi</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- isi data karyawan -->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Tambah karyawan-->
+    <div id="tambahKaryawan" class="content-section float-start"
+        style="position: absolute; top:0; width:100%; height:45%; display:none; z-index:1">
+        <div class="container mt-5">
+
+            <div style="position: absolute; left:28%; top:50%; width:70%">
+                <p class="text-secondary">Forms > <a href="" onclick="showContent('dashboard')"><span
+                            class="fas fa-home"></span></a> ><a href="#" onclick="showContent('karyawan')">Menu
+                        Karyawan</a> > <a href="#" class="text-decoration-none text-secondary">Tambah Data Karyawan</a>
+                </p>
+                <div class="bg-white shadow p-3">
+                    <h3>Tambah Data Karyawan</h3>
+                    <form id="employeeForm">
+                        <div class="form-group">
+                            <label for="nama">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="nama" name="nama" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jenisKelamin">Jenis Kelamin</label>
+                            <select class="form-control" id="jenisKelamin" name="jenisKelamin" required>
+                                <option value="">---</option>
+                                <option value="Laki-Laki">Laki-Laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="noHp">No HP</label>
+                            <input type="tel" class="form-control" id="noHp" name="noHp" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="alamat">Alamat</label>
+                            <textarea class="form-control" id="alamat" name="alamat" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jabatan">Jabatan</label>
+                            <select class="form-control" id="jabatan" name="jabatan" required>
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="divisi">Divisi</label>
+                            <select class="form-control" id="divisi" name="divisi" required>
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-success"><span class="fas fa-save"></span> Simpan</button>
+                        <button type="reset" class="btn btn-danger" onclick="showContent('karyawan')"><span
+                                class="fas fa-undo"></span> Batal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Edit Data karyawan-->
+    <div id="editKaryawanModal" class="modal" tabindex="-1" role="dialog" style="display:none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Karyawan</h5>
+                    <button type="button" class="close" onclick="closeEditKaryawanModal()">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formEditKaryawan">
+                        <div class="form-group">
+                            <label for="editKode">Kode</label>
+                            <input type="hidden" class="form-control" id="editKode" name="kode">
+                        </div>
+                        <div class="form-group">
+                            <label for="editNama">Nama</label>
+                            <input type="text" class="form-control" id="editNama" name="nama" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jenisKelamin">Jenis Kelamin</label>
+                            <select class="form-control" id="editjenisKelamin" name="jenisKelamin" required>
+                                <option value="">---</option>
+                                <option value="Laki-Laki">Laki-Laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editEmail">Email</label>
+                            <input type="email" class="form-control" id="editEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="noHp">No HP</label>
+                            <input type="tel" class="form-control" id="editnoHp" name="noHp" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editAlamat">Alamat</label>
+                            <textarea class="form-control" id="editAlamat" name="alamat" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="editJabatan">Jabatan</label>
+                            <select class="form-control" id="editJabatan" name="jabatan" required>
+                                <option value="">---</option>
+                                <option value="Kepala Bagian">Kepala Bagian</option>
+                                <option value="Kepala Sub Bagian">Kepala Sub Bagian</option>
+                                <option value="Staf">Staff</option>
+                                <option value="Warek I">Warek I</option>
+                                <option value="Warek I">Warek II</option>
+                                <option value="Warek I">Warek III</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="editPass" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="divisi">Divisi</label>
+                            <select class="form-control" id="editDivisi" name="divisi" required>
+                                <option value="">---</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Jabatan-->
+    <div id="pageJabatan" class="content-section float-start "
+        style="position: absolute; top:0; width:100%; height:45%; display:none; z-index:1"><!--background content-->
+        <div class="z-2" style="position: absolute; left:28%; top:50%; width:65%">
+            <h1 class="fs-3 txtJDash">Dashboard</h1>
+            <div class="container mt-5 shadow rounded-3 bgJTabel">
+                <div class="d-flex flex-row z-2 ">
+                    <h2 class="txtJbtan mt-3 w-75 ">Data Jabatan</h2>
+                    <a href="#" class="btn btnAdd mt-3 mb-3 rounded-pill flex-shrink-1"
+                        onclick="showContent('tambahJabatan')">+ Tambah Jabatan</a>
+                </div>
+                <table id="dataJabatan" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Kode Jabatan</th>
+                            <th>Jabatan</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- isi data Jabatan -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!--Tambah Jabatan-->
+    <div id="tambahJabatan" class="content-section float-start"
+        style="position: absolute; top:0; width:100%; height:45%; display:none; z-index:1">
+        <div class="container mt-5">
+
+            <div style="position: absolute; left:28%; top:50%; width:70%">
+                <p class="text-secondary">Forms > <a href="" onclick="showContent('dashboard')"><span
+                            class="fas fa-home"></span></a> ><a href="#"
+                        onclick="showContent('pageJabatan')">Jabatan</a> > <a href="#"
+                        class="text-decoration-none text-secondary">Tambah Data Jabatan</a></p>
+                <div class="bg-white shadow p-3">
+                    <h3>Tambah Data Jabatan</h3>
+                    <form id="jabatanForm">
+                        <div class="form-group">
+                            <label for="pjabatan">Jabatan</label>
+                            <input type="text" class="form-control" id="pjabatan" name="jabatan" required>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-success"><span class="fas fa-save"></span> Simpan</button>
+                        <button type="reset" class="btn btn-danger" onclick="showContent('pageJabatan')"><span
+                                class="fas fa-undo"></span> Batal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Divisi-->
+    <div id="pageDivisi" class="content-section float-start"
+        style="position: absolute; top:0; width:100%; height:45%; display:none; z-index:1"><!--background content-->
+        <div class="z-2" style="position: absolute; left:28%; top:50%; width:65%">
+            <h1 class="fs-3 txtDDash">Dashboard</h1>
+            <div class="container mt-5 bgDTabel shadow rounded-3">
+                <div class="d-flex flex-row z-2">
+                    <h2 class="txtDivisi mt-3 w-75 ">Data Divisi</h2>
+                    <a href="#" class="btn btnAdd mt-3 mb-3 rounded-pill flex-shrink-1"
+                        onclick="showContent('tambahDivisi')">+ Tambah Divisi</a>
+                </div>
+                <table id="dataDivisi" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Kode Divisi</th>
+                            <th>Divisi</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- isi data Jabatan -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!--Tambah Divisi-->
+    <div id="tambahDivisi" class="content-section float-start"
+        style="position: absolute; top:0; width:100%; height:45%; display:none; z-index:1">
+        <div class="container mt-5">
+
+            <div style="position: absolute; left:28%; top:50%; width:70%">
+                <p class="text-secondary">Forms > <a href="" onclick="showContent('dashboard')"><span
+                            class="fas fa-home"></span></a> ><a href="" onclick="showContent('pageDivisi')">Divisi</a> >
+                    <a href="#" class="text-decoration-none text-secondary">Tambah Data Divisi</a></p>
+                <div class="bg-white shadow p-3">
+                    <h3>Tambah Data Divisi</h3>
+                    <form id="divisiForm">
+                        <div class="form-group">
+                            <label for="pdivisi">Divisi</label>
+                            <input type="text" class="form-control" id="pdivisi" name="divisi" required>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-success"><span class="fas fa-save"></span> Simpan</button>
+                        <button type="reset" class="btn btn-danger" onclick="showContent('pageDivisi')"><span
+                                class="fas fa-undo"></span> Batal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Absensi-->
+    <div id="absensi" class="content-section float-start"
+        style="position: absolute; top:0; width:100%; height:45%; display:none; z-index:0"><!--background content-->
+        <div class="z-2" style="position: absolute; left:28%; top:60%; width:70%">
+            <div class="container mt-5 bgDKarTab shadow rounded-3">
+                <div class="d-flex flex-row z-2">
+                    <h2 class="txtDKar mt-3 w-75">Daftar Hadir Karyawan</h2>
+                    <a href="#" class="btn btnAdd mt-3 mb-3 rounded-pill flex-shrink-1"
+                        onclick="showContent('addAbsen')">+ Absen</a>
+                </div>
+                <table id="dataAbsen" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Karyawan</th>
+                            <th>Tanggal</th>
+                            <th>Lokasi Absen</th>
+                            <th>Jam Masuk</th>
+                            <th>Jam Keluar</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- isi data Jabatan -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!--Tambah Absen-->
+    <div id="addAbsen" class="content-section float-start"
+        style="position: absolute; top:0; width:100%; height:45%; display:none; z-index:1">
+        <div class="container mt-5">
+            <div style="position: absolute; left:28%; top:50%; width:70%">
+                <p class="text-secondary">Forms > <a href="" onclick="showContent('dashboard')"><span
+                            class="fas fa-home"></span></a> ><a href="" onclick="showContent('absensi')">Absensi</a> >
+                    <a href="#" class="text-decoration-none text-secondary">Tambah Absensi</a></p>
+                <div class="bg-white shadow p-3">
+                    <h3>Tambah Absen</h3>
+                    <form id="addForm">
+                        <div class="form-group">
+                            <label for="namaK">Nama Karyawan</label>
+                            <input type="text" class="form-control" id="namaK" name="namaKaryawan" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tanggal">Tanggal</label>
+                            <input type="date" class="form-control" id="tanggal" name="tanggal" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lokasi">Lokasi Absen</label>
+                            <input type="text" class="form-control" id="lokasi" name="lokasi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jamMasuk">Jam Masuk</label>
+                            <input type="time" class="form-control" id="jamMasuk" name="jamMasuk" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jamKeluar">Jam Keluar</label>
+                            <input type="time" class="form-control" id="jamKeluar" name="jamKeluar" required>
+                        </div><br><br>
+                        <button type="submit" class="btn btn-primary"><span class="fas fa-save"></span>Simpan
+                            Absensi</button>
+                        <button type="reset" class="btn btn-danger" onclick="showContent('absensi')"><span
+                                class="fas fa-undo"></span> Batal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Izin-->
+    <div id="izin" class="content-section float-start"
+        style="position: absolute; top:0; width:100%; height:45%; display:none; z-index:0"><!--background content-->
+        <div class="z-2" style="position: absolute; left:28%; top:60%; width:70%">
+            <div class="container mt-5 bgDIzTab shadow rounded-3">
+                <div class="d-flex flex-row z-2">
+                    <h2 class="txtDIzin mt-3 w-75">Daftar Izin Karyawan</h2>
+                    <a href="#" class="btn btnAdd mt-3 mb-3 rounded-pill flex-shrink-1"
+                        onclick="showContent('addIzin')">+ Izin</a>
+                </div>
+                <table id="dataIzin" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Izin</th>
+                            <th>Tanggal Absen</th>
+                            <th>Jam</th>
+                            <th>Keterangan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- isi data Jabatan -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!--Tambah Izin-->
+    <div id="addIzin" class="content-section float-start"
+        style="position: absolute; top:0; width:100%; height:45%; display:none; z-index:1">
+        <div class="container mt-5">
+            <div style="position: absolute; left:28%; top:50%; width:70%">
+                <p class="text-secondary">Forms > <a href="" onclick="showContent('dashboard')"><span
+                            class="fas fa-home"></span></a> ><a href="" onclick="showContent('izin')">Izin</a> > <a
+                        href="#" class="text-decoration-none text-secondary">Pengajuan Izin</a></p>
+                <div class="bg-white shadow p-3">
+                    <h3>Tambah Izin</h3>
+                    <form id="izinForm">
+                        <div class="form-group">
+                            <label for="namaIzin">Nama Karyawan</label>
+                            <input type="text" class="form-control" id="namaIzin" name="namaIzin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jIzin">Izin</label>
+                            <select class="form-control" id="jIzin" name="jIzin" required>
+                                <option value="">---</option>
+                                <option value="Datang Terlambat">Datang Terlambat</option>
+                                <option value="Pulang Lebih Awal">Pulang Lebih Awal</option>
+                                <option value="Tidak Bisa Hadir">Tidak Bisa Hadir</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="tanggalIzin">Tanggal</label>
+                            <input type="date" class="form-control" id="tanggalIzin" name="tanggalIzin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jamIzin">Jam Izin</label>
+                            <input type="time" class="form-control" id="jamIzin" name="jamIzin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ketIzin">Keterangan</label>
+                            <input type="text" class="form-control" id="ketIzin" name="ketIzin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="statusIzin">Izin</label>
+                            <select class="form-control" id="statusIzin" name="statusIzin" required>
+                                <option value="">---</option>
+                                <option value="Menunggu Konfirmasi">Ajukan izin</option>
+                            </select>
+                        </div><br><br>
+                        <button type="submit" class="btn btn-primary"><span class="fas fa-save"></span>Tambahkan
+                            izin</button>
+                        <button type="reset" class="btn btn-danger" onclick="showContent('izin')"><span
+                                class="fas fa-undo"></span> Batal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Edit Izin-->
+    <!-- Modal -->
+    <div class="modal fade" id="ubahStatusModal" tabindex="-1" aria-labelledby="ubahStatusModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ubahStatusModalLabel">Ubah Status Izin</h5>
+                    <button type="button" class="btn-close" onclick="closeModal()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="ubahStatusId" value="">
+                    <label for="statusBaru">Pilih Status Baru:</label>
+                    <select id="statusBaru" class="form-select">
+                        <option value="">Pilih Status</option>
+                        <option value="Diterima">Diterima</option>
+                        <option value="Ditolak">Ditolak</option>
+                        <option value="Menunggu">Menunggu</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Tutup</button>
+                    <button type="button" class="btn btn-primary" onclick="simpanStatus()">Simpan Perubahan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--lembur-->
+    <div id="lembur" class="content-section float-start"
+        style="position: absolute; top:0; width:100%; height:45%; display:none; z-index:0"><!--background content-->
+        <div class="z-2" style="position: absolute; left:28%; top:60%; width:70%">
+            <div class="container mt-5 bgLembur shadow rounded-3">
+                <div class="d-flex flex-row z-2">
+                    <h2 class="txtDLembur mt-3 w-75">Daftar Lembur Karyawan</h2>
+                    <a href="#" class="btn btnAdd mt-3 mb-3 rounded-pill flex-shrink-1"
+                        onclick="showContent('addLembur')">+ Lembur</a>
+                </div>
+                <table id="dataLembur" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Tanggal</th>
+                            <th>Jam Lembur Mulai | Berakhir</th>
+                            <th>Keperluan Lembur</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- isi data lembur -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!--Tambah Lembur-->
+    <div id="addLembur" class="content-section float-start"
+        style="position: absolute; top:0; width:100%; height:45%; display:none; z-index:1">
+        <div class="container mt-5">
+            <div style="position: absolute; left:28%; top:50%; width:70%">
+                <p class="text-secondary">Forms > <a href="" onclick="showContent('dashboard')"><span
+                            class="fas fa-home"></span></a> ><a href="" onclick="showContent('lembur')">Lembur</a> > <a
+                        href="#" class="text-decoration-none text-secondary">Ajukan lembur</a></p>
+                <div class="bg-white shadow p-3">
+                    <h3>Tambah Lembur</h3>
+                    <form id="lemburForm">
+                        <div class="form-group">
+                            <label for="namaLembur">Nama Karyawan</label>
+                            <input type="text" class="form-control" id="namaLembur" name="namaLembur" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tanggalLembur">Tanggal</label>
+                            <input type="date" class="form-control" id="tanggalLembur" name="tanggalLembur" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jamMulai">Jam Mulai Lembur</label>
+                            <input type="time" class="form-control" id="jamMulai" name="jamMulaiLembur" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jamSelesai">Jam Selesai Lembur</label>
+                            <input type="time" class="form-control" id="jamSelesai" name="jamSelesaiLembur" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ketLembur">Keperluan Lembur</label>
+                            <input type="text" class="form-control" id="ketLembur" name="ketLembur" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="statusLembur">Status Lembur</label>
+                            <select class="form-control" id="statusLembur" name="statusLembur" required>
+                                <option value="">---</option>
+                                <option value="Menunggu Konfirmasi">Ajukan lembur</option>
+                            </select>
+                        </div>
+                        <br><br>
+                        <button type="submit" class="btn btn-primary"><span class="fas fa-save"></span>Tambahkan
+                            Lembur</button>
+                        <button type="reset" class="btn btn-danger" onclick="showContent('lembur')"><span
+                                class="fas fa-undo"></span> Batal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Edit Lembur-->
+    <!-- Modal -->
+    <div class="modal fade" id="ubahStatusLembur" tabindex="-1" aria-labelledby="ubahStatusLemburan" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ubahStatusLembur">Ubah Status Lembur</h5>
+                    <button type="button" class="btn-close" onclick="closeModal()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="ubahStatusLemburId" value="">
+                    <label for="statusLemburBaru">Pilih Status Baru:</label>
+                    <select id="statusLemburBaru" class="form-select">
+                        <option value="">Pilih Status</option>
+                        <option value="Diterima">Diterima</option>
+                        <option value="Ditolak">Ditolak</option>
+                        <option value="Menunggu">Menunggu</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Tutup</button>
+                    <button type="button" class="btn btn-primary" onclick="simpanStatus()">Simpan Perubahan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--script-->
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

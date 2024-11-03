@@ -1,0 +1,229 @@
+.content-section{
+    display: none;
+} 
+
+body{
+    background-color: #cfdae8bc;
+}
+/*Warna bagian paling atas*/
+.topBar{
+    position: absolute; 
+    left:0; 
+    width:100%; 
+    height:15%; 
+    z-index:2;
+    background-color: rgb(51, 64, 113);
+}
+/*Warna sidebar paling atas*/
+#iconGroup{
+    background-color: rgb(51, 64, 113);
+    z-index: 2;
+    width: 100%;
+    border-radius: 0;
+}
+
+#sidebar{
+    width: 20%; 
+    background-color:#4681b2bc;
+}
+/*FOTO*/
+#sidebar .foto{
+    width: 100%;
+    height: 50%;
+}
+/* Warna Text didalam sidebar */
+.txtOnSidebar{
+    color: white;
+}
+.txtOnSidebarAfter{
+    color: red;
+}
+/* Warna Text Menu didalam sidebar */
+#sidebar p{
+    color:white;
+}
+
+/* Warna text nama di dalam sidebar */
+.txtAdm .txtWc{
+    font-size: 16px;
+    color: white;
+}
+
+/* Warna kotak di sidebar */
+.nav-item{
+    border-radius: 5px;
+    background-color:#0062b3bc;
+}
+
+/*BAGIAN DASHBOARD*/
+#dashboard{
+    background-color: rgba(53, 98, 176, 0.788);
+}
+/*Warna text dashboard*/
+#dashboard .txtSIMK{
+    color: white;
+}
+#dashboard .txtAdmDash{
+    color: black;
+    font-size: 24px;
+}
+/*Warna dasar tampilan kartu*/
+.card{
+    background-color: rgba(172, 204, 243, 0.769);
+}
+.icColorKaryawan{
+    color: white;
+}
+.icColorAbsen{
+    color: white;
+}
+.icColorIzin{
+    color:white
+}
+
+/*Warna text dalam card*/
+.card-body .txtCard{
+    color: rgb(30, 34, 39);
+}
+/*Warna text dalam card bawah*/
+.card-body .txtCard2{
+    color: rgb(247, 248, 249);
+}
+/*Warna kartu tampilan di dashboard*/
+.kPegawai{
+    background-color: rgba(53, 98, 176, 0.788);
+}
+.kAbsensi{
+    background-color: aqua;
+}
+.kIzin{
+    background-color: aquamarine;
+}
+.kLembur{
+    background-color: palegoldenrod;
+}
+
+
+/*BAGIAN KARYAWAN*/
+#karyawan{
+    background-color: rgb(53, 98, 176, 0.788);
+}/*Warna text Dashboard*/
+.txtKDash{
+    color: #ffffff;
+}
+/*Warna latar tabel*/
+.bgTabel{
+    background-color: wheat;
+}
+/*Warna text 1 tabel*/
+.bgTabel .txtDkaryawan{
+    color: rgb(255, 0, 0);
+}
+#dataKaryawan th, #dataKaryawan td{
+    color: blue;
+}
+
+/*BAGIAN JABATAN*/
+#pageJabatan{
+    background-color: rgb(53, 98, 176, 0.788);
+}
+/*Warna text Dashboard*/
+.txtJDash{
+    color: #ffffff;
+}
+/*Warna latar tabel*/
+.bgJTabel{
+    background-color: wheat;
+}
+/*Warna text 1 tabel*/
+.bgJTabel .txtJbtan{
+    color: rgb(255, 0, 0);
+}
+#dataJabatan th, #dataJabatan td{
+    color: blue;
+}
+
+/*BAGIAN DIVISI*/
+#pageDivisi{
+    background-color: rgb(53, 98, 176, 0.788);
+}
+.txtDDash{
+    color: #ffffff;
+}
+/*Warna latar tabel*/
+.bgDTabel{
+    background-color: wheat;
+}
+/*Warna text 1 tabel*/
+.bgDTabel .txtDivisi{
+    color: rgb(255, 0, 0);
+}
+#dataDivisi th, #dataDivisi td{
+    color: blue;
+}
+
+/*BAGIAN ABSENSI*/
+#absensi{
+    background-color: rgb(53, 98,  176, 0.788);
+}
+/*Warna latar tabel*/
+.bgDKarTab{
+    background-color: wheat;
+}
+/*Warna text 1 tabel*/
+.txtDKar{
+    color: rgb(255, 0, 0);
+}
+#absensi th, #absensi td{
+    color: blue;
+}
+
+/*BAGIAN IZIN*/
+#izin{
+    background-color: rgb(53, 98, 176, 0.788);
+}
+/*Warna latar tabel*/
+.bgDIzTab{
+    background-color: wheat;
+}
+/*Warna text 1 tabel*/
+.txtDIzin{
+    color: rgb(255, 0, 0);
+}
+#izin th, #izin td{
+    color: blue;
+}
+
+/*BAGIAN LEMBUR*/
+#lembur{
+    background-color: rgb(53, 98, 176, 0.788);
+}
+/*Warna latar tabel*/
+.bgLembur{
+    background-color: wheat;
+}
+/*Warna text 1 tabel*/
+.txtDLembur{
+    color: rgb(255, 0, 0);
+}
+#lembur th, #lembur td{
+    color: blue;
+}
+
+/*BUTTON AKSI*/
+.btnView{
+    background-color: rgb(53, 98, 176, 0.788);
+    color: white;
+}
+.btnEdit{
+    background-color: blue;
+    color: white;
+}
+.btnHapus{
+    background-color: blue;
+    color: white;
+}
+.btnAdd{
+    background-color: aqua;
+    color: black;
+}
